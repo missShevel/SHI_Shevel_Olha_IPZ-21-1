@@ -1,0 +1,7 @@
+.idea/
+Lib/
+Scripts/
+pyvenv.cfg
+requirements.txt
+share/
+test.py
