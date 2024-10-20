@@ -5,3 +5,5 @@ pyvenv.cfg
 requirements.txt
 share/
 test.py
+*.docx
+__pycache__
