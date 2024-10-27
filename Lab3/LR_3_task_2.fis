@@ -1,0 +1,57 @@
+[System]
+Name='task2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temp'
+Range=[5 40]
+NumMFs=5
+MF1='Very_cold':'trimf',[-3.75 5 13.75]
+MF2='Cold':'trimf',[5 13.75 22.5]
+MF3='Normal':'trimf',[13.75 22.5 31.25]
+MF4='Warm':'trimf',[22.5 31.25 40]
+MF5='Hot':'trimf',[31.25 40 48.75]
+
+[Input2]
+Name='speed'
+Range=[-1 1]
+NumMFs=3
+MF1='-':'trimf',[-1.833 -1 -0.1667]
+MF2='0':'trimf',[-0.8333 0 0.8333]
+MF3='+':'trimf',[0.1667 1 1.833]
+
+[Output1]
+Name='regulate'
+Range=[-90 90]
+NumMFs=5
+MF1='big_left':'trimf',[-135 -90 -45]
+MF2='small_left':'trimf',[-90 -45 0]
+MF3='off':'trimf',[-45 -4.441e-16 45]
+MF4='small_right':'trimf',[0 45 90]
+MF5='big_right':'trimf',[45 90 135]
+
+[Rules]
+5 3, 1 (1) : 1
+5 1, 2 (1) : 1
+4 3, 1 (1) : 1
+4 1, 3 (1) : 1
+1 1, 5 (1) : 1
+1 3, 4 (1) : 1
+2 1, 5 (1) : 1
+2 3, 3 (1) : 1
+5 2, 1 (1) : 1
+4 2, 2 (1) : 1
+1 2, 5 (1) : 1
+2 2, 4 (1) : 1
+3 3, 2 (1) : 1
+3 1, 4 (1) : 1
+3 2, 3 (1) : 1
